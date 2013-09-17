@@ -37,6 +37,7 @@ public class TestThread extends Thread {
                 mTree.delete(c.getValue());
             } else if (c.getOperation() == Operation.Find) {
                 boolean result = mTree.find(c.getValue());
+                
                 if (result != c.isExpected()) {
                     System.out.println("Assert failed for value " + c.getValue() + ". Expected " + c.isExpected() + ", obtained " + result + ".");
                     System.exit(0);
