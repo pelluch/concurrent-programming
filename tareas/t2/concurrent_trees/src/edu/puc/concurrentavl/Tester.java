@@ -2,6 +2,7 @@ package edu.puc.concurrentavl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class Tester
 			}
 			scanner.close();
 
-			BinaryTree tree = new BinaryTree(); // Reemplazar con la
+			BinarySearchTree tree = new BinarySearchTree(); // Reemplazar con la
 			// implementacion del alumno
 
 			TestThread[] threads = new TestThread[numberOfThreads];
@@ -79,7 +80,11 @@ public class Tester
 			System.out.println("Test Passed");
 			long delta = System.currentTimeMillis() - time;
 			System.out.println("The test took " + delta + " ms.");
-			tree.prettyPrint();
+			PrintStream ps = new PrintStream(new File("output"));
+			tree.print(ps);
+			tree.printOrder(ps);
+			ps.close();
+			System.out.println("Valid tree: " + tree.isValid());
 
 
 		} catch (FileNotFoundException e) {
