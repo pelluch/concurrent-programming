@@ -1,4 +1,4 @@
-package concurrentavl;
+package edu.puc.concurrentavl;
 
 import java.util.HashMap;
 import java.util.Queue;

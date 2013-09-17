@@ -1,4 +1,4 @@
-package concurrentavl;
+package edu.puc.concurrentavl;
 
 public enum Operation {
     Insert("INSERT"), Find("FIND"), Delete("DELETE"), SynchroInsert(

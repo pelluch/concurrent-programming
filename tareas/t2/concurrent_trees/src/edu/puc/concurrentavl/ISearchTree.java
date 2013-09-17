@@ -1,4 +1,4 @@
-package concurrentavl;
+package edu.puc.concurrentavl;
 
 public interface ISearchTree {
 	public boolean find(int value);
