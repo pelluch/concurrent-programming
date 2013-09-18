@@ -10,6 +10,7 @@ public class BinarySearchTree implements ISearchTree {
 	protected int value;
 	protected boolean hasValue;
 	protected BinarySearchTree[] children = new BinarySearchTree[2];
+	protected int height = 0;
 
 	public BinarySearchTree() {
 		this.hasValue = false;
@@ -23,7 +24,6 @@ public class BinarySearchTree implements ISearchTree {
 
 	@Override
 	public void delete(int delVal) {
-		// TODO Auto-generated method stub
 
 		int numChildren = numChildren();
 
@@ -73,16 +73,6 @@ public class BinarySearchTree implements ISearchTree {
 
 	}	
 
-	public int getHeight()
-	{
-		int height = 0;
-		if(children[LEFT] != null)
-			height = children[LEFT].getHeight() + 1;
-		if(children[RIGHT] != null)
-			height = Math.max(height, children[RIGHT].getHeight() + 1);
-
-		return height;
-	}
 
 	@Override
 	public boolean find(int value) {	
@@ -111,7 +101,7 @@ public class BinarySearchTree implements ISearchTree {
 	@Override
 	public void insert(int newValue) {
 
-
+		//Empty tree
 		if(this.parent == null && !hasValue)
 		{
 			this.value = newValue;
@@ -125,10 +115,17 @@ public class BinarySearchTree implements ISearchTree {
 		int direction = newValue < value ? LEFT : RIGHT;
 		BinarySearchTree child = children[direction];
 		if(child == null)
+		{
 			children[direction] = new BinarySearchTree(this, newValue);
+			if (children[direction ^ 1] != null) 
+				++ height;
+		}
 		else
+		{
 			child.insert(newValue);
+		}
 	}
+
 
 	public boolean isValid()
 	{
@@ -178,7 +175,7 @@ public class BinarySearchTree implements ISearchTree {
 	{		
 
 		int numChildren = numChildren();
-		int extraWidth = 8;
+		int extraWidth = 0;
 		String newSpace = whitespace;
 
 		if(children[RIGHT] != null) 
@@ -187,7 +184,7 @@ public class BinarySearchTree implements ISearchTree {
 			{
 				newSpace = replaceLastOf(whitespace, '|', ' ');
 			}
-			
+
 			children[RIGHT].print(ps, newSpace + "          |", "----",  padding, RIGHT);	
 
 			for(int i = 0; i < extraWidth; ++ i)
@@ -216,8 +213,8 @@ public class BinarySearchTree implements ISearchTree {
 			for(int i = 0; i < extraWidth; ++ i)
 				ps.println(newSpace + "          |");
 			children[LEFT].print(ps, newSpace + "          |", "----", padding, LEFT);
-			
-	
+
+
 		}
 	}
 

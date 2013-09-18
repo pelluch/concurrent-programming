@@ -4,53 +4,29 @@ public class AvlTree extends BinarySearchTree {
 
 	protected int balance = 0;
 	
-	public void restoreBalance()
+	public AvlTree() 
 	{
-		int balance = 0;
-		if(children[RIGHT] != null)
-			balance += children[RIGHT].getHeight();
-		if(children[LEFT] != null)
-			balance -= children[LEFT].getHeight();		
-		
-		
+		this.hasValue = false;
+		this.parent = null;
+	}
+	
+	public AvlTree(AvlTree parent, int value)
+	{
+		this.value = value;
+		this.hasValue = true;
+		this.parent = null;
+	}
+	public void reBalance()
+	{
 		
 	}
-	public void insert(int newValue)
+	
+	protected void createNode(int direction, int value)
 	{
+		children[direction] = new AvlTree(this, value);
+		AvlTree avlParent = (AvlTree)parent;
+	}
+	
 
-		if(this.parent == null && !hasValue)
-		{
-			this.value = newValue;
-			this.hasValue = true;
-			return;
-		}
-		
-		if(this.value == newValue)
-			return;
-		
-		int direction = newValue < value ? LEFT : RIGHT;
-		BinarySearchTree child = children[direction];
-		if(child == null)
-		{
-			children[direction] = new BinarySearchTree(this, newValue);
-			restoreBalance();	
-		}
-		else
-		{
-			child.insert(newValue);
-		}
-				
-	}
-	
-	public void delete(int delVal)
-	{
-		super.delete(delVal);
-		restoreBalance();		
-	}
-	
-	public void rotate(int direction)
-	{
-		
-	}
 	
 }

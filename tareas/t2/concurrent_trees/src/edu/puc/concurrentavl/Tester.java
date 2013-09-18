@@ -14,12 +14,13 @@ public class Tester
 {
 
 	public static void main(String[] args) {
+		
 		System.out.println("Choose test file: ");
 		String basePath = "../tests";
 		File dirFile = new File(basePath);
 		File[] testFiles = dirFile.listFiles();
 		for(int i = 0; i < testFiles.length; ++i) {
-			System.out.println(i + ". " + testFiles[i].getName());
+			System.out.println((i+1) + ". " + testFiles[i].getName());
 		}
 		Scanner scanner = new Scanner(System.in);
 		
@@ -30,7 +31,7 @@ public class Tester
 			try 
 			{
 				String choice = scanner.nextLine();
-				idx = Integer.parseInt(choice);
+				idx = Integer.parseInt(choice)-1;
 			}
 			catch(NumberFormatException nfe)  
 			{  
@@ -38,10 +39,30 @@ public class Tester
 			}
 		}
 		
+		
 		String path = testFiles[idx].getPath();
+		
+		idx = -1;
+		System.out.println("1. Binary Search Tree (unbalanced)");
+		System.out.println("2. AVL Tree");
+		System.out.println("3. Red-Black Tree");
+		
+		while(idx < 0 || idx > 2)
+		{			
+			System.out.println("Choose a BST implementation");
+			try 
+			{
+				String choice = scanner.nextLine();
+				idx = Integer.parseInt(choice) - 1;
+			}
+			catch(NumberFormatException nfe)  
+			{  
+				System.out.println("Not a number.");				
+			}
+		}
+	
 		scanner.close();
 
-		long time = System.currentTimeMillis();
 
 		File file = new File(path);
 		try {
@@ -58,9 +79,27 @@ public class Tester
 				Command c = new Command(line);
 				commandQueues.get(c.getThread()).add(c);
 			}
-			scanner.close();
+			
+			
 
-			AvlTree tree = new AvlTree(); // Reemplazar con la
+			
+			long time = System.currentTimeMillis();
+			BinarySearchTree tree = null;
+
+			switch(idx)
+			{
+			case 0:
+				tree = new BinarySearchTree();
+				break;
+			case 1:
+				tree = new AvlTree();
+				break;
+			case 2:
+				tree = new RedBlackTree();
+				break;
+				
+			}
+			 // Reemplazar con la
 			// implementacion del alumno
 
 			TestThread[] threads = new TestThread[numberOfThreads];
@@ -86,7 +125,7 @@ public class Tester
 			//tree.printOrder(ps);
 			ps.close();
 			System.out.println("Valid tree: " + tree.isValid());
-			System.out.println("Height: " + tree.getHeight());
+
 
 
 		} catch (FileNotFoundException e) {
