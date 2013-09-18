@@ -60,7 +60,7 @@ public class Tester
 			}
 			scanner.close();
 
-			BinarySearchTree tree = new BinarySearchTree(); // Reemplazar con la
+			AvlTree tree = new AvlTree(); // Reemplazar con la
 			// implementacion del alumno
 
 			TestThread[] threads = new TestThread[numberOfThreads];
@@ -82,9 +82,11 @@ public class Tester
 			System.out.println("The test took " + delta + " ms.");
 			PrintStream ps = new PrintStream(new File("output"));
 			tree.print(ps);
-			tree.printOrder(ps);
+			
+			//tree.printOrder(ps);
 			ps.close();
 			System.out.println("Valid tree: " + tree.isValid());
+			System.out.println("Height: " + tree.getHeight());
 
 
 		} catch (FileNotFoundException e) {

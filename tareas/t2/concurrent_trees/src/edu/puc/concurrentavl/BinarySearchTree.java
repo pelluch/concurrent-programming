@@ -20,23 +20,23 @@ public class BinarySearchTree implements ISearchTree {
 		this.hasValue = true;
 		this.parent = parent;
 	}
-	
+
 	@Override
 	public void delete(int delVal) {
 		// TODO Auto-generated method stub
-		
+
 		int numChildren = numChildren();
-		
+
 		//Root node
 		if(this.parent == null && this.value == delVal && numChildren == 0)
 		{
 			this.hasValue = false;
 			return;
 		}
-		
+
 		if(value == delVal)
 		{
-			
+
 			//System.out.println("Deleting " + value + " with numChildren = " + numChildren);
 			if(numChildren == 2)
 			{
@@ -46,7 +46,7 @@ public class BinarySearchTree implements ISearchTree {
 			}
 			else if(numChildren == 1) 
 			{
-				
+
 				BinarySearchTree child = children[LEFT] != null ? children[LEFT] : children[RIGHT];
 				//Check if root
 				if(parent != null)
@@ -54,7 +54,7 @@ public class BinarySearchTree implements ISearchTree {
 					int directionFromParent = this.equals(parent.children[LEFT]) ? LEFT : RIGHT;
 					parent.children[directionFromParent] = child;
 				}
-				
+
 				child.parent = this.parent;
 			}
 			else 
@@ -64,16 +64,26 @@ public class BinarySearchTree implements ISearchTree {
 				this.parent = null;
 			}
 		}
-		
+
 		int direction = delVal < value ? LEFT : RIGHT;
 		BinarySearchTree child = children[direction];
 		if(child != null)
 			child.delete(delVal);
-		
-		
+
+
 	}	
 
-	
+	public int getHeight()
+	{
+		int height = 0;
+		if(children[LEFT] != null)
+			height = children[LEFT].getHeight() + 1;
+		if(children[RIGHT] != null)
+			height = Math.max(height, children[RIGHT].getHeight() + 1);
+
+		return height;
+	}
+
 	@Override
 	public boolean find(int value) {	
 
@@ -89,7 +99,7 @@ public class BinarySearchTree implements ISearchTree {
 
 		return false;
 	}
-	
+
 	protected BinarySearchTree findMin()
 	{
 		if(children[LEFT] != null)
@@ -97,21 +107,21 @@ public class BinarySearchTree implements ISearchTree {
 		else
 			return this;
 	}
-	
+
 	@Override
 	public void insert(int newValue) {
-		// TODO Auto-generated method stub
-		
+
+
 		if(this.parent == null && !hasValue)
 		{
 			this.value = newValue;
 			this.hasValue = true;
 			return;
 		}
-		
+
 		if(this.value == newValue)
 			return;
-		
+
 		int direction = newValue < value ? LEFT : RIGHT;
 		BinarySearchTree child = children[direction];
 		if(child == null)
@@ -123,16 +133,16 @@ public class BinarySearchTree implements ISearchTree {
 	public boolean isValid()
 	{
 		boolean isValid = true;
-		
+
 		if(children[RIGHT] != null)
 			isValid = children[RIGHT].value > value && isValid;
-		
-		if(children[LEFT] != null)
-			isValid = children[LEFT].value < value && isValid;
-		
-		return isValid;
+
+			if(children[LEFT] != null)
+				isValid = children[LEFT].value < value && isValid;
+
+			return isValid;
 	}
-	
+
 	protected int numChildren()
 	{
 		int numChildren = 0;
@@ -140,57 +150,89 @@ public class BinarySearchTree implements ISearchTree {
 			++numChildren;
 		if(children[RIGHT] != null)
 			++numChildren;
-		
+
 		return numChildren;
 	}
 
 	public void print()
 	{
-		print(System.out, "", "",  '-');
+		print(System.out, "", "",  '-', RIGHT);
 	}
 
-	public void print(PrintStream os)
-	{
-		print(os, "", "", '-');
+	public void print(PrintStream ps)
+	{		
+		if(children[RIGHT] != null)
+			print(ps, "", "", '-', RIGHT);		
+
 	}
-	
-	protected void print(PrintStream ps, String whitespace, String prefix,  char padding)
-	{			
-		
+
+	protected String replaceLastOf(String str, char ch, char newChar)
+	{
+		int idx = str.lastIndexOf(ch);
+		char[] arr = str.toCharArray();
+		arr[idx] = newChar;
+		return new String(arr);
+	}
+
+	protected void print(PrintStream ps, String whitespace, String prefix,  char padding, int lastDirection)
+	{		
+
 		int numChildren = numChildren();
+		int extraWidth = 8;
+		String newSpace = whitespace;
+
 		if(children[RIGHT] != null) 
-		{		
-			children[RIGHT].print(ps, whitespace + "          |", "----",  padding);		
+		{				
+			if(parent != null && lastDirection == RIGHT)
+			{
+				newSpace = replaceLastOf(whitespace, '|', ' ');
+			}
+			
+			children[RIGHT].print(ps, newSpace + "          |", "----",  padding, RIGHT);	
+
+			for(int i = 0; i < extraWidth; ++ i)
+				ps.println(newSpace + "          |");
 		}
-		
-	
-		ps.print(whitespace);
-		ps.print(prefix);	
-		
+
+		//ps.print(whitespace);
+		//ps.print(prefix);	
+
+
 		String numString = "" + value;
 		while(numChildren > 0 && numString.length() + prefix.length() < 10)
 			numString += padding;
-		
-		ps.println(numString);
-		
+
+		String line = whitespace + prefix + numString;
+		ps.println(line);
+
+		newSpace = whitespace;
+
 		if(children[LEFT] != null) 
 		{
-			children[LEFT].print(ps, whitespace + "          |", "----", padding);
+			if(parent != null && lastDirection == LEFT)
+			{
+				newSpace = replaceLastOf(whitespace, '|', ' ');
+			}
+			for(int i = 0; i < extraWidth; ++ i)
+				ps.println(newSpace + "          |");
+			children[LEFT].print(ps, newSpace + "          |", "----", padding, LEFT);
+			
+	
 		}
 	}
-	
+
 	public void printOrder()
 	{
 		printOrder(System.out);
 	}
-	
+
 	public void printOrder(PrintStream ps)
 	{
 		if(children[LEFT] != null)
 			children[LEFT].printOrder(ps);
-		
+
 		ps.println(value);
-		
+
 		if(children[RIGHT] != null)
 			children[RIGHT].printOrder(ps);
 	}
