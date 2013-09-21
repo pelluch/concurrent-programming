@@ -12,6 +12,7 @@ public class BinarySearchTree implements ISearchTree {
 	protected BinarySearchTree[] children = new BinarySearchTree[2];
 	protected int height = 0;
 	protected boolean unbalanced = false;
+	protected static boolean unbalanceOccurred = false;
 	
 	public BinarySearchTree() {
 		
@@ -130,9 +131,12 @@ public class BinarySearchTree implements ISearchTree {
 		{
 			child.insert(newValue);		
 		}
-		if(parent == null)
+		if(parent == null && unbalanceOccurred)
 		{
+			System.out.println("");
+			System.out.println("");
 			this.print();
+			unbalanceOccurred = false;
 		}
 	}
 

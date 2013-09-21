@@ -25,10 +25,12 @@ public class AvlTree extends BinarySearchTree {
 			this.height = Math.max(this.height, leftHeight);
 		}
 		
-		if(rightHeight - leftHeight > 1 || rightHeight-leftHeight < 1) {
-			System.out.println("Node " + this.value + " has become unbalanced!");
+		this.balance = rightHeight - leftHeight;
+		if(Math.abs(balance) > 1)
+		{
+			//System.out.println("Node " + this.value + " has become unbalanced! " + balance);
+			unbalanceOccurred = true;
 			this.unbalanced = true;
-			return;
 		}
 		
 		if(parent != null)
