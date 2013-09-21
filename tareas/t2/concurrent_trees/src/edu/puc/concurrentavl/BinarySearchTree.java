@@ -6,20 +6,23 @@ public class BinarySearchTree implements ISearchTree {
 	public final int LEFT = 0;
 	public final int RIGHT = 1;
 
-	protected BinarySearchTree parent;
+	protected BinarySearchTree parent = null;
 	protected int value;
-	protected boolean hasValue;
+	protected boolean hasValue = false;
 	protected BinarySearchTree[] children = new BinarySearchTree[2];
 	protected int height = 0;
-
+	protected boolean unbalanced = false;
+	
 	public BinarySearchTree() {
-		this.hasValue = false;
-		this.parent = null;
+		
 	}
+	
 	public BinarySearchTree(BinarySearchTree parent, int value) {
+		
 		this.value = value;
 		this.hasValue = true;
 		this.parent = parent;
+		
 	}
 
 	@Override
@@ -37,10 +40,12 @@ public class BinarySearchTree implements ISearchTree {
 		if(value == delVal)
 		{
 
-			//System.out.println("Deleting " + value + " with numChildren = " + numChildren);
+			
 			if(numChildren == 2)
 			{
+				System.out.println("Deleting " + value + " with numChildren = " + numChildren);
 				BinarySearchTree successor = children[RIGHT].findMin();
+				System.out.println("Successor: " + successor.value);
 				this.value = successor.value;
 				successor.delete(successor.value);
 			}
@@ -115,18 +120,29 @@ public class BinarySearchTree implements ISearchTree {
 		int direction = newValue < value ? LEFT : RIGHT;
 		BinarySearchTree child = children[direction];
 		if(child == null)
-		{
-			children[direction] = new BinarySearchTree(this, newValue);
-			if (children[direction ^ 1] != null) 
+		{			
+			if (children[direction ^ 1] == null) 
 				++ height;
+			
+			createChildNode(direction, newValue);			
 		}
 		else
 		{
-			child.insert(newValue);
+			child.insert(newValue);		
+		}
+		if(parent == null)
+		{
+			this.print();
 		}
 	}
 
-
+	protected void createChildNode(int direction, int newValue)
+	{
+		children[direction] = new BinarySearchTree(this, newValue);
+		
+	}
+	
+	
 	public boolean isValid()
 	{
 		boolean isValid = true;
@@ -196,9 +212,13 @@ public class BinarySearchTree implements ISearchTree {
 
 
 		String numString = "" + value;
+		if(this.unbalanced) numString =  "[" + numString + "]";
+		this.unbalanced = false;
+		
 		while(numChildren > 0 && numString.length() + prefix.length() < 10)
 			numString += padding;
-
+		
+		
 		String line = whitespace + prefix + numString;
 		ps.println(line);
 
