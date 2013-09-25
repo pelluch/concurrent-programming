@@ -2,6 +2,7 @@ package edu.puc.concurrentavl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -41,26 +42,6 @@ public class Tester
 		
 		
 		String path = testFiles[idx].getPath();
-		
-		idx = -1;
-		System.out.println("1. Binary Search Tree (unbalanced)");
-		System.out.println("2. AVL Tree");
-		System.out.println("3. Red-Black Tree");
-		
-		while(idx < 0 || idx > 2)
-		{			
-			System.out.println("Choose a BST implementation");
-			try 
-			{
-				String choice = scanner.nextLine();
-				idx = Integer.parseInt(choice) - 1;
-			}
-			catch(NumberFormatException nfe)  
-			{  
-				System.out.println("Not a number.");				
-			}
-		}
-	
 		scanner.close();
 
 
@@ -84,21 +65,9 @@ public class Tester
 
 			
 			long time = System.currentTimeMillis();
-			BinarySearchTree tree = null;
+			RedBlackTree tree = new RedBlackTree();;
 
-			switch(idx)
-			{
-			case 0:
-				tree = new BinarySearchTree();
-				break;
-			case 1:
-				tree = new AvlTree();
-				break;
-			case 2:
-				tree = new RedBlackTree();
-				break;
-				
-			}
+		
 			 // Reemplazar con la
 			// implementacion del alumno
 
@@ -120,12 +89,18 @@ public class Tester
 			long delta = System.currentTimeMillis() - time;
 			System.out.println("The test took " + delta + " ms.");
 			PrintStream ps = new PrintStream(new File("output"));
-			tree.print(ps);
+			tree.print(ps, 3);
 			
 			//tree.printOrder(ps);
 			ps.close();
 			System.out.println("Valid tree: " + tree.isValid());
-
+			String[] cmd = { "/usr/bin/python", "transposer.py" };
+			
+			try {
+				Runtime.getRuntime().exec(cmd);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
 
 		} catch (FileNotFoundException e) {
