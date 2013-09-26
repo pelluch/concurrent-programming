@@ -17,7 +17,6 @@ public class RedBlackTree implements ISearchTree {
 	protected RedBlackTree[] children = new RedBlackTree[2];
 	protected int height = 0;
 	protected boolean unbalanced = false;
-	protected static boolean unbalanceOccurred = false;
 	
 	public RedBlackTree() {
 		this.color = RED;
@@ -88,29 +87,6 @@ public class RedBlackTree implements ISearchTree {
 
 	}	
 
-	public RedBlackTree rotate(int direction) {
-		
-		int otherDirection = direction ^ 1;
-		if(this.children[otherDirection] == null)
-			return this;
-		
-		if(this.parent == null && !this.hasValue)
-			return this;
-		
-		RedBlackTree oldParent = this.parent; 
-		RedBlackTree leftRightChild = this.children[otherDirection].children[direction];
-		this.parent = children[otherDirection];
-		this.parent.parent = oldParent;
-		parent.children[direction] = this;
-		this.children[otherDirection] = leftRightChild;
-		
-		if(leftRightChild != null)
-			leftRightChild.parent = this;
-		
-		return this.parent;
-		
-	}
-	
 	@Override
 	public boolean find(int value) {	
 
@@ -126,7 +102,7 @@ public class RedBlackTree implements ISearchTree {
 
 		return false;
 	}
-
+	
 	protected RedBlackTree findMin()
 	{
 		if(children[LEFT] != null)
@@ -138,7 +114,7 @@ public class RedBlackTree implements ISearchTree {
 	@Override
 	public void insert(int newValue) {
 
-		//Empty tree
+		//Empty tree, root is always black
 		if(this.parent == null && !hasValue)
 		{
 			this.value = newValue;
@@ -146,7 +122,8 @@ public class RedBlackTree implements ISearchTree {
 			this.color = BLACK;
 			return;
 		}
-
+		
+		//Value already exists, do nothing
 		if(this.value == newValue)
 			return;
 
@@ -157,27 +134,54 @@ public class RedBlackTree implements ISearchTree {
 			if (children[direction ^ 1] == null) 
 				++ height;
 			
-			createChildNode(direction, newValue);			
+			children[direction] = new RedBlackTree(this, newValue);
+			children[direction].balanceTree(direction);
+			
 		}
 		else
 		{
 			child.insert(newValue);		
 		}
-		if(parent == null && unbalanceOccurred)
-		{
-			System.out.println("");
-			System.out.println("");
-			this.print();
-			unbalanceOccurred = false;
-		}
-	}
-
-	protected void createChildNode(int direction, int newValue)
-	{
-		children[direction] = new RedBlackTree(this, newValue);
-		
 	}
 	
+	public RedBlackTree getUncle() {
+		
+		RedBlackTree uncle = null;		
+		if(parent.parent != null) {
+			
+			int uncleDirection = parent.equals(parent.parent.children[RIGHT]) ? LEFT : RIGHT;
+			uncle = parent.parent.children[uncleDirection];
+		}
+		
+		return uncle;
+	}
+	//Direction: Position inserted FROM parent
+	public void balanceTree(int direction) {
+		
+		int otherDirection = direction ^ 1;
+		RedBlackTree uncle = getUncle();
+		int uncleColor = uncle == null ? BLACK : uncle.color;
+		
+		//If parent is RED, parent.parent is never null or parent would be BLACK
+		if(parent.color == RED && uncleColor == RED) {
+			parent.color = BLACK;
+			uncle.color = BLACK;
+			parent.parent.color = RED;
+		}
+		
+		if(parent.color == RED && uncleColor == BLACK && 
+				parent.equals(parent.parent.children[otherDirection])) {
+			parent.rotate(otherDirection);
+			//I now have a child going in otherDirection, who was formerly my parent.
+			children[otherDirection].balanceTree(otherDirection);
+			return;
+		}
+		
+		if(parent.color == RED && uncle.color == BLACK && 
+				parent.equals(parent.parent.children[direction])) {
+			parent.parent.rotate(otherDirection);
+		}
+	}
 	
 	public boolean isValid()
 	{
@@ -191,7 +195,8 @@ public class RedBlackTree implements ISearchTree {
 
 			return isValid;
 	}
-
+	
+	
 	protected int numChildren()
 	{
 		int numChildren = 0;
@@ -207,21 +212,10 @@ public class RedBlackTree implements ISearchTree {
 	{
 		print(System.out, "", "",  '-', RIGHT, 0);
 	}
-	
+
 	public void print(int extraWidth)
 	{
 		print(System.out, "", "",  '-', RIGHT, extraWidth);
-	}
-
-	public void print(PrintStream ps, int extraWidth)
-	{		
-		if(children[RIGHT] != null)
-			print(ps, "", "", '-', RIGHT, extraWidth);		
-		else if(children[LEFT] != null)
-			print(ps, "", "", '-', LEFT, extraWidth);	
-		else
-			ps.println("" + this.value);
-
 	}
 	
 	public void print(PrintStream ps)
@@ -235,14 +229,17 @@ public class RedBlackTree implements ISearchTree {
 
 	}
 
-	protected String replaceLastOf(String str, char ch, char newChar)
-	{
-		int idx = str.lastIndexOf(ch);
-		char[] arr = str.toCharArray();
-		arr[idx] = newChar;
-		return new String(arr);
-	}
+	public void print(PrintStream ps, int extraWidth)
+	{		
+		if(children[RIGHT] != null)
+			print(ps, "", "", '-', RIGHT, extraWidth);		
+		else if(children[LEFT] != null)
+			print(ps, "", "", '-', LEFT, extraWidth);	
+		else
+			ps.println("" + this.value);
 
+	}
+	
 	protected void print(PrintStream ps, String whitespace, String prefix,  char padding, int lastDirection, int extraWidth)
 	{		
 
@@ -307,6 +304,37 @@ public class RedBlackTree implements ISearchTree {
 
 		if(children[RIGHT] != null)
 			children[RIGHT].printOrder(ps);
+	}
+
+	protected String replaceLastOf(String str, char ch, char newChar)
+	{
+		int idx = str.lastIndexOf(ch);
+		char[] arr = str.toCharArray();
+		arr[idx] = newChar;
+		return new String(arr);
+	}
+
+	public RedBlackTree rotate(int direction) {
+		
+		int otherDirection = direction ^ 1;
+		if(this.children[otherDirection] == null)
+			return this;
+		
+		if(this.parent == null && !this.hasValue)
+			return this;
+		
+		RedBlackTree oldParent = this.parent; 
+		RedBlackTree leftRightChild = this.children[otherDirection].children[direction];
+		this.parent = children[otherDirection];
+		this.parent.parent = oldParent;
+		parent.children[direction] = this;
+		this.children[otherDirection] = leftRightChild;
+		
+		if(leftRightChild != null)
+			leftRightChild.parent = this;
+		
+		return this.parent;
+		
 	}
 	
 }
