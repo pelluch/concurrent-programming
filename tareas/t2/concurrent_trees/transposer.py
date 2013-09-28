@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
 import subprocess
+import sys
 
 f1 = open('output', 'r')
 f2 = open('tree', 'a')
+f2.write(sys.argv[1] + '\n')
 
 lines = f1.readlines()
 lines = [line.rstrip().replace('|', '*').replace('-', '|').replace('*','-') for line in lines]
@@ -34,4 +36,4 @@ f1.close()
 f2.write('===================================================' + '\n')
 f2.close()
 
-subprocess.call(['subl3', 'tree'])
+#subprocess.call(['subl3', 'tree'])

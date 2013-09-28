@@ -93,7 +93,7 @@ public class Tester
 			
 			//tree.printOrder(ps);
 			ps.close();
-			System.out.println("Valid tree: " + tree.isValid());
+			//System.out.println("Valid tree: " + tree.isValid());
 			String[] cmd = { "/usr/bin/python", "transposer.py" };
 			
 			try {
