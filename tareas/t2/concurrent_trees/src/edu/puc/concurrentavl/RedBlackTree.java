@@ -31,6 +31,9 @@ public class RedBlackTree implements ISearchTree, ITreeHolder {
 
 	@Override
 	public void insert(int newValue) {
+        if(newValue == 799) {
+            int a = 3;
+        }
         if(root != null)
 		    root.insert(newValue);
         else

@@ -86,7 +86,7 @@ public class Menu {
 	}
 	
 	public static int[] generateValues() {
-		int [] values = {1, 2, 3, 4, 5, 6, 7, 800, 799, -1, 801, 802, -800, 740, 10, 8};
+		int [] values = {1, 2, 3, 4, 5, 6, 7, 800, 799, 801, 802, 740, 10, 8};
 		return values;
 	}
 

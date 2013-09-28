@@ -134,14 +134,11 @@ public class Node {
 
     }
 
-    protected void print(PrintStream ps, String whitespace, String prefix,  char padding, int lastDirection, int extraWidth) {
+    protected void print(PrintStream ps, String whitespace, String prefix,
+                         char padding, int lastDirection, int extraWidth) {
         int numChildren = numChildren();
         String newSpace = whitespace;
 
-        if(value == 2)
-        {
-            int a = 3;
-        }
         if(children[RIGHT] != null)
         {
             if(parent != null && lastDirection == RIGHT)
@@ -210,6 +207,13 @@ public class Node {
         }
     }
 
+    public Node getBrother() {
+        if(this.parent == null) {
+            return null;
+        }
+        Node brother = this.equals(parent.children[LEFT]) ? parent.children[RIGHT] : parent.children[LEFT];
+        return brother;
+    }
 
     public void switchColors(Node other) {
         if(other == null) {
@@ -221,6 +225,7 @@ public class Node {
             color = otherColor;
         }
     }
+
     public void rotate(int direction) {
 
         int otherDirection = direction ^ 1;
