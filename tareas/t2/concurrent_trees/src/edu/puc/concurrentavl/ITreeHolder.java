@@ -9,4 +9,5 @@ package edu.puc.concurrentavl;
  */
 public interface ITreeHolder {
     void updateRoot(Node newRoot);
+    void debug(String message, Node node);
 }
