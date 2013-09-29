@@ -2,23 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d77ab053-3c9e-4356-8321-459aa5340458" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/TreeGraph.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/JavaRedBlack.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java" afterPath="$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="concurrent_trees.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380321112481" ignored="false" />
+    <file path="/Dummy.txt" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380408718209" ignored="false" />
     <file path="/a.groovy" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380236636071" ignored="false" />
     <file path="/a.html" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380236637181" ignored="false" />
     <file path="/a.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380236906088" ignored="false" />
     <file path="/sample.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380236901207" ignored="false" />
     <file path="/a.xml" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380236930837" ignored="false" />
-    <file path="/Menu.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380334014628" ignored="false" />
+    <file path="/Menu.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380398843439" ignored="false" />
     <file path="/fragment.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380349933574" ignored="false" />
-    <file path="/RedBlackTree.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380351967807" ignored="false" />
-    <file path="/Node.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380350502394" ignored="false" />
-    <file path="/ITreeHolder.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380334290997" ignored="false" />
+    <file path="/RedBlackTree.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380423007178" ignored="false" />
+    <file path="/Node.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380422929660" ignored="false" />
+    <file path="/ITreeHolder.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380419686178" ignored="false" />
+    <file path="/TreeGraph.java" changelist="d77ab053-3c9e-4356-8321-459aa5340458" time="1380408939777" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,38 +82,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java" line="34" class="edu.puc.concurrentavl.RedBlackTree" package="edu.puc.concurrentavl">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java" line="263" class="edu.puc.concurrentavl.Node" package="edu.puc.concurrentavl">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -119,26 +95,30 @@
       <file leaf-file-name="ISearchTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ISearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="19" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+            <state line="6" column="3" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedBlackTree.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RedBlackTree.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="60" column="38" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.8310627">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ITreeHolder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java">
+      <file leaf-file-name="TreeGraph.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/TreeGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="29" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="87" column="0" selection-start="2877" selection-end="2877" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,10 +132,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Node.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="279" column="13" selection-start="8082" selection-end="8082" vertical-scroll-proportion="0.4484536">
+            <state line="143" column="0" selection-start="4355" selection-end="4355" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ITreeHolder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +153,7 @@
       <file leaf-file-name="Menu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="24" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
+            <state line="46" column="0" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,16 +162,7 @@
       <file leaf-file-name="Tester.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="14" selection-start="2302" selection-end="2302" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JavaRedBlack.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/JavaRedBlack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="13" selection-start="5411" selection-end="5411" vertical-scroll-proportion="0.0">
+            <state line="17" column="67" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -207,10 +187,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/JavaRedBlack.java" />
+        <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/TreeGraph.java" />
+        <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/ISearchTree.java" />
         <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java" />
         <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java" />
-        <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java" />
         <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java" />
+        <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java" />
         <option value="$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java" />
       </list>
     </option>
@@ -219,10 +201,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1364" />
+    <option name="x" value="1918" />
     <option name="y" value="-3" />
     <option name="width" value="1924" />
-    <option name="height" value="1087" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -458,6 +440,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -505,28 +492,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1364" y="-3" width="1924" height="1087" extended-state="6" />
+    <frame x="1918" y="-3" width="1924" height="1052" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.79383636" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.79383636" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5600425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2615894" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20616366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837406" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1664888" sideWeight="0.4399575" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08751334" sideWeight="0.8388521" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.79383636" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10992529" sideWeight="0.696068" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26673752" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10992529" sideWeight="0.8388521" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1611479" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -595,6 +582,34 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="12" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="24" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="14" selection-start="2302" selection-end="2302" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ISearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -609,16 +624,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ISearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="29" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
+        <state line="6" column="3" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/JavaRedBlack.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ITreeHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="13" selection-start="5411" selection-end="5411" vertical-scroll-proportion="0.0">
+        <state line="11" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="67" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -630,38 +652,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/ISearchTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="14" selection-start="2302" selection-end="2302" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="24" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
+        <state line="46" column="0" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/TreeGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="0" selection-start="2877" selection-end="2877" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="0" selection-start="4355" selection-end="4355" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/RedBlackTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/puc/concurrentavl/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="279" column="13" selection-start="8082" selection-end="8082" vertical-scroll-proportion="0.4484536">
-          <folding />
+        <state line="60" column="38" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.8310627">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
