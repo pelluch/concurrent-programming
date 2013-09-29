@@ -89,7 +89,7 @@ public class Tester
 			long delta = System.currentTimeMillis() - time;
 			System.out.println("The test took " + delta + " ms.");
 			PrintStream ps = new PrintStream(new File("output"));
-			tree.print();
+			tree.print(ps, 3);
 			
 			//tree.printOrder(ps);
 			ps.close();

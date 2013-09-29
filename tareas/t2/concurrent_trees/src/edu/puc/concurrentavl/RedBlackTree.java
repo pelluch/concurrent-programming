@@ -1,17 +1,13 @@
 package edu.puc.concurrentavl;
 
-import java.io.IOException;
 import java.io.PrintStream;
 
 public class RedBlackTree implements ISearchTree, ITreeHolder {
 
 	protected Node root = null;
 	protected int height = 0;
-    protected TreeGraph graph;
+	protected boolean unbalanced = false;
 
-    public RedBlackTree() {
-        graph = new TreeGraph(800,600);
-    }
 	@Override
 	public void delete(int delVal) {
         if(root != null)
@@ -44,12 +40,6 @@ public class RedBlackTree implements ISearchTree, ITreeHolder {
             root = new Node(null, newValue, this);
 	}
 
-    public void debug(String message, Node node) {
-
-        System.out.println("DEBUG for node " + node.value + "\t" + message);
-        print();
-
-    }
     @Override
     public void updateRoot(Node newRoot) {
         this.root = newRoot;
@@ -58,15 +48,27 @@ public class RedBlackTree implements ISearchTree, ITreeHolder {
 
 	public void print()
 	{
-        return;
-       /* graph.drawTree(root);
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            System.out.println("Error reading input");
-            e.printStackTrace();
-        }*/
+        if(root != null)
+		    root.print(System.out, "", "",  '-', Node.RIGHT, 0);
 	}
 
+	public void print(int extraWidth)
+	{
+        if(root != null)
+		    root.print(System.out, "", "",  '-', Node.RIGHT, extraWidth);
+	}
+	
+	public void print(PrintStream ps)
+	{
+        if(root != null)
+            root.print(ps);
+
+	}
+
+	public void print(PrintStream ps, int extraWidth)
+	{
+        if(root != null)
+		    root.print(ps, extraWidth);
+	}
 
 }

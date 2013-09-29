@@ -17,6 +17,7 @@ public class Menu {
 		PrintStream ps;
 		try {
 			RedBlackTree tree = runRedBlack(values);
+			JavaRedBlack<Integer, Integer> jrb = runTreeMap(values);
 
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -38,46 +39,54 @@ public class Menu {
                 f.delete();
             }
 
-            PrintStream ps = System.out;
+            PrintStream ps = new PrintStream(new File("output"));
             String op = "";
             if(values[i] < 0)     {
                 op = "DELETE " + -values[i];
-                ps.println(op);
                 tree.delete(-values[i]);
-                tree.print();
-
             }
             else {
                 op = "INSERT " + values[i];
-                ps.println(op);
 			    tree.insert(values[i]);
             }
+			tree.print(ps, 5);
 
+            String[] cmd = { "/usr/bin/python", "transposer.py", op };
 
-//            String[] cmd = { "/usr/bin/python", "transposer.py", op };
-//
-//            try {
-//                Process p = Runtime.getRuntime().exec(cmd);
-//                try {
-//                    p.waitFor();
-//                } catch (InterruptedException e) {
-//                    // TODO Auto-generated catch block
-//                    e.printStackTrace();
-//                }
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Process p = Runtime.getRuntime().exec(cmd);
+                try {
+                    p.waitFor();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 
-            //ps.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ps.close();
 		}
 
 		return tree;
 	}
+	
+	public static JavaRedBlack<Integer, Integer> runTreeMap(int [] values) {
+		JavaRedBlack<Integer, Integer> map = new JavaRedBlack<Integer, Integer>();
+		for(int i = 0; i < values.length; ++i) {
+            if(values[i] < 0)
+                map.remove(-values[i]);
+            else
+                map.put(values[i], values[i]);
 
+		}
+		return map;
+		
+	}
 	
 	public static int[] generateValues() {
-		int [] values = {5, 2, 9, 10, 11, 12, 1, 3, 4, -9, -10, -12, -2, -5, -11, -4, -3, -1};
+		int [] values = {1, 2, 3, 4, 5, 6, 7, 800, 799, 801, 802, 740, 10, 8};
 		return values;
 	}
 
