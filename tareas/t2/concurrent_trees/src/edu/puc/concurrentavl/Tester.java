@@ -65,7 +65,7 @@ public class Tester
 
 			
 			long time = System.currentTimeMillis();
-			RedBlackTree tree = new RedBlackTree();;
+			JdkRedBlackTree tree = new JdkRedBlackTree();;
 
 		
 			 // Reemplazar con la
@@ -89,7 +89,7 @@ public class Tester
 			long delta = System.currentTimeMillis() - time;
 			System.out.println("The test took " + delta + " ms.");
 			PrintStream ps = new PrintStream(new File("output"));
-			tree.print();
+			//tree.print();
 
 			//tree.printOrder(ps);
 			ps.close();

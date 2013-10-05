@@ -13,13 +13,13 @@ public class RedBlackTree implements ISearchTree, ITreeHolder {
 
     }
 	@Override
-	public synchronized void delete(int delVal) {
+	public  void delete(int delVal) {
         if(root != null)
 		    root.delete(delVal);
 	}	
 
 	@Override
-	public synchronized boolean find(int value) {
+	public  boolean find(int value) {
         if(root != null)
             return root.find(value);
         return false;
@@ -34,7 +34,7 @@ public class RedBlackTree implements ISearchTree, ITreeHolder {
 	}
 
 	@Override
-	public synchronized void insert(int newValue) {
+	public  void insert(int newValue) {
         if(newValue == 799) {
             int a = 3;
         }
