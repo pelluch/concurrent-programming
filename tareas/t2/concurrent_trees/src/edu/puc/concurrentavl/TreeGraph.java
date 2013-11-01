@@ -56,16 +56,13 @@ public class TreeGraph extends JFrame
     {
         if (N==null) return;
         //try{Thread.sleep(1000);} catch(Exception e) {} // slow down
-        if(N.color == N.BLACK)
-            display.setColor(Color.black);
-        else //if(N.color == color.RED)
-            display.setColor(Color.red);
+       
+        display.setColor(Color.black);
 
         display.fillOval(((lb+rb)/2)-10,yoff+(l*bheight),20,20);
-        if(N.color == N.BLACK)
-            display.setColor(Color.red);
-        else //if(N.color == color.RED)
-            display.setColor(Color.blue);
+        
+        display.setColor(Color.red);
+       
         //display.setColor(Color.red);
         display.drawString(N.value+"",((lb+rb)/2)-5,yoff+15+(l*bheight));
         display.setColor(Color.blue); // draw branches
