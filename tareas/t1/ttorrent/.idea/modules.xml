@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ttorrent.iml" filepath="$PROJECT_DIR$/ttorrent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cli/ttorrent-cli.iml" filepath="$PROJECT_DIR$/cli/ttorrent-cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/ttorrent-core.iml" filepath="$PROJECT_DIR$/core/ttorrent-core.iml" />
+    </modules>
+  </component>
+</project>
