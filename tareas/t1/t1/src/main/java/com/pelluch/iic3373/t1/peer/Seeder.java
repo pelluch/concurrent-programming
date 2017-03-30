@@ -1,19 +1,9 @@
 package com.pelluch.iic3373.t1.peer;
 
-import com.dampcake.bencode.Bencode;
-import com.dampcake.bencode.BencodeInputStream;
-import com.dampcake.bencode.BencodeOutputStream;
-import com.dampcake.bencode.Type;
 import com.pelluch.iic3373.t1.Peer;
 import com.pelluch.iic3373.t1.bcodec.BDecoder;
 import com.pelluch.iic3373.t1.bcodec.BEValue;
 import com.pelluch.iic3373.t1.bcodec.BEncoder;
-import com.pelluch.iic3373.t1.tracker.SocketConnectionHandler;
-import com.pelluch.iic3373.t1.tracker.Tracker;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
-import com.sun.xml.internal.ws.util.ByteArrayBuffer;
-import jdk.internal.util.xml.impl.Input;
-import sun.reflect.generics.tree.Tree;
 
 import java.io.*;
 import java.net.*;
@@ -36,8 +26,9 @@ public class Seeder {
     private ServerSocket server;
     private ByteBuffer peerId;
     private static final String BITTORRENT_ID_PREFIX = "-qB33B0-";
-    private final static String torrentFile = "/home/pablo/src/concurrent-programing/data/archlinux-2017.03.01-dual.iso.torrent";
+    private final static String torrentFile = "/home/pablo/src/concurrent-programming/tareas/t1/data/archlinux-2017.03.01-dual.iso.torrent";
     private byte[] infoHash;
+    private boolean isClosed = false;
 
     public Seeder() throws NoSuchAlgorithmException {
         port = startingPort++;
@@ -72,8 +63,9 @@ public class Seeder {
         }
     }
 
-    public void announce() {
-        HttpURLConnection urlConnection = null;
+    void announce() {
+
+        HttpURLConnection urlConnection;
 
         String encoded = null;
         try {
@@ -95,7 +87,7 @@ public class Seeder {
             params.put("downloaded", "0");
             params.put("left", "0");
             params.put("compact", "0");
-            params.put("event", "completed");
+            params.put("event", isClosed ? "stopped" : "completed");
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 builder.append(entry.getKey())
                         .append("=")
@@ -130,19 +122,33 @@ public class Seeder {
         }
     }
 
+    public void closeServer() {
+        isClosed = true;
+        if(!server.isClosed()) {
+            try {
+                server.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void startListening() {
         try {
             server = new ServerSocket(port, 0, InetAddress.getLocalHost());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true) {
+        while(!isClosed) {
             try {
                 Socket client = server.accept();
                 System.out.println("Connection accepted!");
                 Runnable connectionHandler = new PeerConnectionHandler(client);
                 new Thread(connectionHandler).start();
-            } catch(IOException e) {
+            } catch(SocketException e) {
+               System.out.println(e.getMessage());
+               announce();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
