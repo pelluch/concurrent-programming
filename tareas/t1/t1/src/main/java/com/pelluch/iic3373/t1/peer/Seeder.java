@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class Seeder {
 
-    private static int startingPort = 9650;
+    static int startingPort = 9650;
     private int port;
     private long numLeechers;
     private long numSeeders;
@@ -29,6 +29,10 @@ public class Seeder {
     private final static String torrentFile = "/home/pablo/src/concurrent-programming/tareas/t1/data/archlinux-2017.03.01-dual.iso.torrent";
     private byte[] infoHash;
     private boolean isClosed = false;
+
+    public byte[] getPeerIdBytes() {
+        return peerId.array();
+    }
 
     public Seeder() throws NoSuchAlgorithmException {
         port = startingPort++;
@@ -143,7 +147,7 @@ public class Seeder {
             try {
                 Socket client = server.accept();
                 System.out.println("Connection accepted!");
-                Runnable connectionHandler = new PeerConnectionHandler(client);
+                Runnable connectionHandler = new PeerConnectionHandler(this, client);
                 new Thread(connectionHandler).start();
             } catch(SocketException e) {
                System.out.println(e.getMessage());
